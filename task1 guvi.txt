@@ -1,0 +1,47 @@
+http 1.1 vs http2
+ one of the most significant features that distinguishes HTTP/1.1 and HTTP/2 is the binary framing layer, which can be thought of as a part of the application layer in the internet protocol stack. As opposed to HTTP/1.1, 
+which keeps all requests and responses in plain text format, HTTP/2 uses the binary framing layer to encapsulate all messages in binary format, while still maintaining HTTP semantics, such as verbs, methods, and headers. An application level API would still create messages in the conventional HTTP formats, but the underlying layer would then convert these messages into binary. This ensures that web applications created before HTTP/2 can continue functioning as normal when interacting with the new protocol.
+
+The conversion of messages into binary allows HTTP/2 to try new approaches to data delivery not available in HTTP/1.1, a contrast that is at the root of the practical 
+differences between the two protocols. The next section will take a look at the delivery model of HTTP/1.1, followed by what new models are made possible by HTTP/2.
+ As opposed to HTTP/1.1, which must make use of multiple TCP connections to lessen the effect of HOL blocking, HTTP/2 establishes a single connection object between the two machines.
+ Within this connection there are multiple streams of data. Each stream consists of multiple messages in the familiar request/response format.
+ Finally, each of these messages split into smaller units called frames.
+ 
+   HTTP VERSION HISTORY 
+HTTP/1.1 was first documented in RFC 2068 in 1997, and as of 2021, it (plus older versions) is less popular (used by less than a third of websites; it's always a 
+
+backup protocol) for web serving than its successors. That specification was obsoleted by RFC 2616 in 1999, which was likewise replaced by the RFC 7230 family of 
+RFCs in 2014.
+
+HTTP/2 is a more efficient expression of HTTP's semantics "on the wire", and was published in 2015, and is used by over 50% of websites; it is now supported by 
+virtually all web browsers[2] and major web servers over Transport Layer Security (TLS) using an Application-Layer Protocol Negotiation (ALPN) extension[3] where TLS 1.2 or newer is required.[4][5]
+HTTP/3 is the proposed successor to HTTP/2,[6][7] and 2/3rd of web browser users (both on desktop and mobile) can already use HTTP/3, on the 18% of websites that already support it; uses UDP instead of TCP for the underlying transport protocol. Like HTTP/2, it does not obsolete previous major versions of the protocol. Support for HTTP/3 was added to Cloudflare
+ and Google Chrome in September 2019 (since enabled by default),[8][9] and can be enabled in the stable versions of Firefox[10] and Safari.
+
+
+
+3. BROWSER JS.                                     NODEJS
+  
+1.Javascript is a programming language                  NODEJS is a js runtime environment
+that is used for writing scripts on the website   
+
+2. Javascript can only be run in the browsers.	       NodeJS code can be run outside the browser.
+3.It is basically used on the client-side.	         It is mostly used on the server-side.
+4.Javascript is capable enough to add HTML and play with the DOM.	Nodejs does not have capability to add HTML tags.
+5.Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox.	Nodejs can only run in V8 engine of google chrome.
+6.Javascript is used in frontend development.	Nodejs is used in server-side development.
+7.Some of the javascript frameworks are Reactjs, angularjs, etc.	Some of the Nodejs modules are Lodash, express etc. These modules are to be imported from npm.
+8.It is the upgraded version of ECMA script that uses Chrome’s V8 engine written in C++.	Nodejs is written in C, C++ and Javascript.
+
+
+
+
+4 what happens when you type an url in the browser
+You enter a URL into a web browser
+The browser looks up the IP address for the domain name via DNS
+The browser sends a HTTP request to the server
+The server sends back a HTTP response
+The browser begins rendering the HTML
+The browser sends requests for additional objects embedded in HTML (images, css, JavaScript) and repeats steps 3-5.
+Once the page is loaded, the browser sends further async requests as needed.
